@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.yok.gov.tr/personel/2020/01" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" xmlns:sch="http://www.yok.gov.tr/personel/2020/01" targetNamespace="http://www.yok.gov.tr/personel/2020/01" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:personel="http://www.yok.gov.tr/personel/2020/01" elementFormDefault="qualified" targetNamespace="http://www.yok.gov.tr/personel/2020/01">
+      <xsd:element name="AkademikPersonelUniversiteRequest" type="personel:AkademikPersonelUniversiteRequestType" />
+      <xsd:complexType name="AkademikPersonelUniversiteRequestType">
+        <xsd:sequence>
+          <xsd:element name="Istek" type="personel:IstekBilgiTip" />
+          <xsd:element name="UniversiteId" type="xsd:long" />
+          <xsd:element name="Yil" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AkademikPersonelUniversiteResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="AkademikPersonelUniversite" type="personel:AkademikPersonelUniversite" />
+            <xsd:element name="Sonuc" type="personel:SonucBilgiTip" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="AkademikPersonelUniversite">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Yil" type="xsd:int" />
+          <xsd:element minOccurs="0" name="UniversiteId" type="xsd:long" />
+          <xsd:element minOccurs="0" name="UniversiteAdi" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Profesor" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Docent" type="xsd:int" />
+          <xsd:element minOccurs="0" name="YrdDocent" type="xsd:int" />
+          <xsd:element minOccurs="0" name="OgretimGorevlisi" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Okutman" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Uzman" type="xsd:int" />
+          <xsd:element minOccurs="0" name="ArastirmaGorevlisi" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Cevirici" type="xsd:int" />
+          <xsd:element minOccurs="0" name="EgitimOgretimPlanlama" type="xsd:int" />
+          <xsd:element minOccurs="0" name="OgretimGorevlisiDr" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AkademikPersonelGorevRequest" type="personel:AkademikPersonelGorevRequestType" />
+      <xsd:complexType name="AkademikPersonelGorevRequestType">
+        <xsd:sequence>
+          <xsd:element name="Istek" type="personel:IstekBilgiTip" />
+          <xsd:element name="TcKimlikNo" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AkademikPersonelGorevResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="AkademikPersonelGorev" type="personel:AkademikPersonelGorev" />
+            <xsd:element name="Sonuc" type="personel:SonucBilgiTip" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="AkademikPersonelGorev">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TcKimlikNo" type="xsd:long" />
+          <xsd:element minOccurs="0" name="Ad" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Soyad" type="xsd:string" />
+          <xsd:element minOccurs="0" name="KadroUnvan" type="personel:Referans" />
+          <xsd:element minOccurs="0" name="KadroBirim" type="personel:Birim" />
+          <xsd:element minOccurs="0" name="GoreveBaslamaTarihi" type="personel:TarihSaat" />
+          <xsd:element minOccurs="0" name="GorevUnvan" type="personel:Referans" />
+          <xsd:element minOccurs="0" name="KirkBGorevlendirmeBirim" type="personel:Birim" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AkademikPersonelAyrilanRequest" type="personel:AkademikPersonelAyrilanRequestType" />
+      <xsd:complexType name="AkademikPersonelAyrilanRequestType">
+        <xsd:sequence>
+          <xsd:element name="Istek" type="personel:IstekBilgiTip" />
+          <xsd:element name="TcKimlikNo" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AkademikPersonelAyrilanResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="AkademikPersonelAyrilan" type="personel:AkademikPersonelAyrilan" />
+            <xsd:element name="Sonuc" type="personel:SonucBilgiTip" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="AkademikPersonelAyrilan">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TcKimlikNo" type="xsd:long" />
+          <xsd:element minOccurs="0" name="Ad" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Soyad" type="xsd:string" />
+          <xsd:element minOccurs="0" name="KadroUnvan" type="personel:Referans" />
+          <xsd:element minOccurs="0" name="KadroBirim" type="personel:Birim" />
+          <xsd:element minOccurs="0" name="AtanmaSekli" type="personel:Referans" />
+          <xsd:element minOccurs="0" name="AtanmaTarihi" type="personel:TarihSaat" />
+          <xsd:element minOccurs="0" name="AyrilmaNedeni" type="personel:Referans" />
+          <xsd:element minOccurs="0" name="AyrilmaTarihi" type="personel:TarihSaat" />
+          <xsd:element minOccurs="0" name="GoreveBaslamaTarihi" type="personel:TarihSaat" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AkademikPersonelIdariGorevRequest" type="personel:AkademikPersonelIdariGorevRequestType" />
+      <xsd:complexType name="AkademikPersonelIdariGorevRequestType">
+        <xsd:sequence>
+          <xsd:element name="Istek" type="personel:IstekBilgiTip" />
+          <xsd:element name="TcKimlikNo" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AkademikPersonelIdariGorevResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="AkademikPersonelIdariGorev" type="personel:AkademikPersonelIdariGorev" />
+            <xsd:element name="Sonuc" type="personel:SonucBilgiTip" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="AkademikPersonelIdariGorev">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TcKimlikNo" type="xsd:long" />
+          <xsd:element minOccurs="0" name="Gorev" type="personel:Referans" />
+          <xsd:element minOccurs="0" name="GorevBirim" type="personel:Birim" />
+          <xsd:element minOccurs="0" name="GoreveBaslamaTarihi" type="personel:TarihSaat" />
+          <xsd:element minOccurs="0" name="GorevBitisTarihi" type="personel:TarihSaat" />
+          <xsd:element minOccurs="0" name="Vekalet" type="personel:Referans" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AkademikPersonelRequest" type="personel:AkademikPersonelRequestType" />
+      <xsd:complexType name="AkademikPersonelRequestType">
+        <xsd:sequence>
+          <xsd:element name="Istek" type="personel:IstekBilgiTip" />
+          <xsd:element name="TcKimlikNo" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AkademikPersonelResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="AkademikPersonel" type="personel:AkademikPersonel" />
+            <xsd:element name="Sonuc" type="personel:SonucBilgiTip" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AkademikPersonelOzetRequest" type="personel:AkademikPersonelOzetRequestType" />
+      <xsd:complexType name="AkademikPersonelOzetRequestType">
+        <xsd:sequence>
+          <xsd:element name="Istek" type="personel:IstekBilgiTip" />
+          <xsd:element name="TcKimlikNo" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AkademikPersonelOzetResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="AkademikPersonelOzet" type="personel:AkademikPersonelOzet" />
+            <xsd:element name="Sonuc" type="personel:SonucBilgiTip" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="AkademikPersonelOzet">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TcKimlikNo" type="xsd:long" />
+          <xsd:element minOccurs="0" name="Ad" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Soyad" type="xsd:string" />
+          <xsd:element minOccurs="0" name="KadroUnvanAdi" type="xsd:string" />
+          <xsd:element minOccurs="0" name="UniversiteAdi" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AkademikPersonel">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TcKimlikNo" type="xsd:long" />
+          <xsd:element minOccurs="0" name="Ad" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Soyad" type="xsd:string" />
+          <xsd:element minOccurs="0" name="KadroUnvan" type="personel:Referans" />
+          <xsd:element minOccurs="0" name="KadroBirim" type="personel:Birim" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Birim">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Birim" type="personel:Referans" />
+          <xsd:element minOccurs="0" name="BirimTuru" type="personel:Referans" />
+          <xsd:element minOccurs="0" name="FakulteYoMyoEnstitu" type="personel:Referans" />
+          <xsd:element minOccurs="0" name="Universite" type="personel:Referans" />
+          <xsd:element minOccurs="0" name="UniversiteTuru" type="personel:Referans" />
+          <xsd:element minOccurs="0" name="Il" type="personel:Referans" />
+          <xsd:element minOccurs="0" name="Ilce" type="personel:Referans" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Referans">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Kod" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Ad" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Aciklama" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SonucBilgiTip">
+        <xsd:sequence>
+          <xsd:element name="SonucKod" type="xsd:int">
+            <xsd:annotation>
+              <xsd:documentation>Sonuc Kod. 1: basarili Diger: hata</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="DisSistemSonucKod" type="xsd:token" />
+          <xsd:element minOccurs="0" name="SonucMesaj" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="IstekBilgiTip">
+        <xsd:annotation>
+          <xsd:documentation>Istek genel bilgi</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="IstekTarihi" type="personel:TarihSaat">
+            <xsd:annotation>
+              <xsd:documentation>Istek Tarihi</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="IstekId">
+            <xsd:annotation>
+              <xsd:documentation>Istek ID</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="64" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="KullaniciAdi" type="xsd:token" />
+          <xsd:element minOccurs="0" name="UygulamaAdi" type="xsd:token" />
+          <xsd:element minOccurs="0" name="UygulamaSunucuAdi" type="xsd:token" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="TarihSaat">
+        <xsd:annotation>
+          <xsd:documentation>Tarih Saat formati. dd/MM/yyyy SS:dd:ss.mmm</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:pattern value="[0-3][0-9]/[0-1][0-9]/[1-9][0-9]{3} [0-2][0-9]:[0-5][0-9]:[0-5][0-9](\.[0-9]{3})?" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="AkademikPersonelOzetRequest">
+    <wsdl:part name="AkademikPersonelOzetRequest" element="sch:AkademikPersonelOzetRequest" />
+  </wsdl:message>
+  <wsdl:message name="AkademikPersonelOzetResponse">
+    <wsdl:part name="AkademikPersonelOzetResponse" element="sch:AkademikPersonelOzetResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PersonelPort">
+    <wsdl:operation name="AkademikPersonelOzet">
+      <wsdl:input name="AkademikPersonelOzetRequest" message="sch:AkademikPersonelOzetRequest" />
+      <wsdl:output name="AkademikPersonelOzetResponse" message="sch:AkademikPersonelOzetResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PersonelPortSoap11" type="sch:PersonelPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AkademikPersonelOzet">
+      <soap:operation soapAction="" />
+      <wsdl:input name="AkademikPersonelOzetRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AkademikPersonelOzetResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PersonelPortService">
+    <wsdl:port name="PersonelPortSoap11" binding="sch:PersonelPortSoap11">
+      <soap:address location="https://servis.turkiye.gov.tr/services/g2g/yok/AkademikPersonelOzet" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

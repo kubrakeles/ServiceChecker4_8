@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PASOServiceLib.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PASOServiceLib.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Ogrenci">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Sinif" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TurAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TurKodu" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Ogrenci" nillable="true" type="tns:Ogrenci" />
+  <xs:complexType name="Ogretmen">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Durum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Il" type="xs:int" />
+      <xs:element minOccurs="0" name="KurumTuru" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Ogretmen" nillable="true" type="tns:Ogretmen" />
+</xs:schema>

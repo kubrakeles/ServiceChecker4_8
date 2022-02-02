@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="https://mebservis.meb.gov.tr/PASO/v2" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="https://mebservis.meb.gov.tr/PASO/v2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="https://mebservis.meb.gov.tr/PASO/v2/Imports">
+      <xsd:import schemaLocation="https://mebservis.meb.gov.tr/PASO/v2/Service.svc?xsd=xsd0" namespace="https://mebservis.meb.gov.tr/PASO/v2" />
+      <xsd:import schemaLocation="https://mebservis.meb.gov.tr/PASO/v2/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://mebservis.meb.gov.tr/PASO/v2/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CommonLibrary.Models" />
+      <xsd:import schemaLocation="https://mebservis.meb.gov.tr/PASO/v2/Service.svc?xsd=xsd3" namespace="https://mebservis.meb.gov.tr/COMMON/v1" />
+      <xsd:import schemaLocation="https://mebservis.meb.gov.tr/PASO/v2/Service.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/PASOServiceLib.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="OgrenciSorgulaRequest">
+    <wsdl:part name="parameters" element="tns:OgrenciSorgulaRequestObject" />
+  </wsdl:message>
+  <wsdl:message name="OgrenciSorgulaResponse">
+    <wsdl:part name="parameters" element="tns:OgrenciSorgulaResponseObject" />
+  </wsdl:message>
+  <wsdl:message name="OgretmenSorgulaRequest">
+    <wsdl:part name="parameters" element="tns:OgretmenSorgulaRequestObject" />
+  </wsdl:message>
+  <wsdl:message name="OgretmenSorgulaResponse">
+    <wsdl:part name="parameters" element="tns:OgretmenSorgulaResponseObject" />
+  </wsdl:message>
+  <wsdl:message name="YeniMezunSorgulaRequest">
+    <wsdl:part name="parameters" element="tns:YeniMezunSorgulaRequestObject" />
+  </wsdl:message>
+  <wsdl:message name="YeniMezunSorgulaResponse">
+    <wsdl:part name="parameters" element="tns:YeniMezunSorgulaResponseObject" />
+  </wsdl:message>
+  <wsdl:portType name="IService">
+    <wsdl:operation name="OgrenciSorgula">
+      <wsdl:input wsaw:Action="https://mebservis.meb.gov.tr/PASO/v2/IService/OgrenciSorgula" name="OgrenciSorgulaRequest" message="tns:OgrenciSorgulaRequest" />
+      <wsdl:output wsaw:Action="https://mebservis.meb.gov.tr/PASO/v2/IService/OgrenciSorgulaResponse" name="OgrenciSorgulaResponse" message="tns:OgrenciSorgulaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="OgretmenSorgula">
+      <wsdl:input wsaw:Action="https://mebservis.meb.gov.tr/PASO/v2/IService/OgretmenSorgula" name="OgretmenSorgulaRequest" message="tns:OgretmenSorgulaRequest" />
+      <wsdl:output wsaw:Action="https://mebservis.meb.gov.tr/PASO/v2/IService/OgretmenSorgulaResponse" name="OgretmenSorgulaResponse" message="tns:OgretmenSorgulaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="YeniMezunSorgula">
+      <wsdl:input wsaw:Action="https://mebservis.meb.gov.tr/PASO/v2/IService/YeniMezunSorgula" name="YeniMezunSorgulaRequest" message="tns:YeniMezunSorgulaRequest" />
+      <wsdl:output wsaw:Action="https://mebservis.meb.gov.tr/PASO/v2/IService/YeniMezunSorgulaResponse" name="YeniMezunSorgulaResponse" message="tns:YeniMezunSorgulaResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

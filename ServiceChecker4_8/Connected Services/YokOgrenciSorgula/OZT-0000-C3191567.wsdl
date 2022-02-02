@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch="http://www.yok.gov.tr/yuksekogretimegitimbilgisi/2019/10" xmlns:tns="http://www.yok.gov.tr/yuksekogretimegitimbilgisi/2019/10" targetNamespace="http://www.yok.gov.tr/yuksekogretimegitimbilgisi/2019/10" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.yok.gov.tr/yuksekogretimegitimbilgisi/2019/10" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="OgrenciOzetRequest" type="tns:OgrenciOzetRequestType" />
+      <xsd:complexType name="OgrenciOzetRequestType">
+        <xsd:sequence>
+          <xsd:element name="Istek" type="tns:IstekBilgiTip" />
+          <xsd:element name="TcKimlikNo" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="OgrenciOzetResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="OgrenciOzetBilgi" type="tns:OgrenciOzetBilgi" />
+            <xsd:element name="Sonuc" type="tns:SonucBilgiTip" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="OgrenciOzetBilgi">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TcKimlikNo" type="xsd:long" />
+          <xsd:element minOccurs="0" name="Adi" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Soyadi" type="xsd:string" />
+          <xsd:element minOccurs="0" name="UniversiteAdi" type="xsd:string" />
+          <xsd:element minOccurs="0" name="OgrencilikHakkiVarMi" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="TarihSaat">
+        <xsd:annotation>
+          <xsd:documentation>Tarih Saat formati. dd/MM/yyyy SS:dd:ss.mmm</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:pattern value="[0-3][0-9]/[0-1][0-9]/[1-9][0-9]{3} [0-2][0-9]:[0-5][0-9]:[0-5][0-9](\.[0-9]{3})?" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="SonucBilgiTip">
+        <xsd:sequence>
+          <xsd:element name="SonucKod" type="xsd:int">
+            <xsd:annotation>
+              <xsd:documentation>Sonuc Kod. 1: basarili Diger: hata</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="DisSistemSonucKod" type="xsd:token" />
+          <xsd:element minOccurs="0" name="SonucMesaj" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="IstekBilgiTip">
+        <xsd:annotation>
+          <xsd:documentation>Istek genel bilgi</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element name="IstekTarihi" type="tns:TarihSaat">
+            <xsd:annotation>
+              <xsd:documentation>Istek Tarihi</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="IstekId">
+            <xsd:annotation>
+              <xsd:documentation>Istek ID</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="64" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="KullaniciAdi" type="xsd:token" />
+          <xsd:element minOccurs="0" name="UygulamaAdi" type="xsd:token" />
+          <xsd:element minOccurs="0" name="UygulamaSunucuAdi" type="xsd:token" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="OgrenciOzetResponse">
+    <wsdl:part name="OgrenciOzetResponse" element="tns:OgrenciOzetResponse" />
+  </wsdl:message>
+  <wsdl:message name="OgrenciOzetRequest">
+    <wsdl:part name="OgrenciOzetRequest" element="tns:OgrenciOzetRequest" />
+  </wsdl:message>
+  <wsdl:portType name="YuksekOgretimEgitimBilgisiPort">
+    <wsdl:operation name="OgrenciOzet">
+      <wsdl:input name="OgrenciOzetRequest" message="tns:OgrenciOzetRequest" />
+      <wsdl:output name="OgrenciOzetResponse" message="tns:OgrenciOzetResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="YuksekOgretimEgitimBilgisiPortSoap11" type="tns:YuksekOgretimEgitimBilgisiPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="OgrenciOzet">
+      <soap:operation soapAction="" />
+      <wsdl:input name="OgrenciOzetRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="OgrenciOzetResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="YuksekOgretimEgitimBilgisiPortService">
+    <wsdl:port name="YuksekOgretimEgitimBilgisiPortSoap11" binding="tns:YuksekOgretimEgitimBilgisiPortSoap11">
+      <soap:address location="https://servis.turkiye.gov.tr/services/g2g/yok/OZT-0000-C3191567" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

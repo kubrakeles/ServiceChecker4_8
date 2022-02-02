@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="https://mebservis.meb.gov.tr/PASO/v2" elementFormDefault="qualified" targetNamespace="https://mebservis.meb.gov.tr/PASO/v2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://mebservis.meb.gov.tr/PASO/v2/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CommonLibrary.Models" />
+  <xs:import schemaLocation="https://mebservis.meb.gov.tr/PASO/v2/Service.svc?xsd=xsd3" namespace="https://mebservis.meb.gov.tr/COMMON/v1" />
+  <xs:import schemaLocation="https://mebservis.meb.gov.tr/PASO/v2/Service.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/PASOServiceLib.Models" />
+  <xs:element name="OgrenciSorgulaRequestObject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TCKimlikNo" type="xs:long" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CommonLibrary.Models" minOccurs="0" name="UygulamaBilgileri" nillable="true" type="q1:UygulamaBilgileri" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OgrenciSorgulaResponseObject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="https://mebservis.meb.gov.tr/COMMON/v1" minOccurs="0" ref="q2:Aciklama" />
+        <xs:element xmlns:q3="https://mebservis.meb.gov.tr/COMMON/v1" minOccurs="0" ref="q3:Basarili" />
+        <xs:element xmlns:q4="https://mebservis.meb.gov.tr/COMMON/v1" minOccurs="0" ref="q4:SonucKodu" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/PASOServiceLib.Models" minOccurs="0" name="Ogrenci" nillable="true" type="q5:Ogrenci" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OgretmenSorgulaRequestObject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TCKimlikNo" type="xs:long" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/CommonLibrary.Models" minOccurs="0" name="UygulamaBilgileri" nillable="true" type="q6:UygulamaBilgileri" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OgretmenSorgulaResponseObject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="https://mebservis.meb.gov.tr/COMMON/v1" minOccurs="0" ref="q7:Aciklama" />
+        <xs:element xmlns:q8="https://mebservis.meb.gov.tr/COMMON/v1" minOccurs="0" ref="q8:Basarili" />
+        <xs:element xmlns:q9="https://mebservis.meb.gov.tr/COMMON/v1" minOccurs="0" ref="q9:SonucKodu" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/PASOServiceLib.Models" minOccurs="0" name="Ogretmen" nillable="true" type="q10:Ogretmen" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="YeniMezunSorgulaRequestObject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TCKimlikNo" type="xs:long" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/CommonLibrary.Models" minOccurs="0" name="UygulamaBilgileri" nillable="true" type="q11:UygulamaBilgileri" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="YeniMezunSorgulaResponseObject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="https://mebservis.meb.gov.tr/COMMON/v1" minOccurs="0" ref="q12:Aciklama" />
+        <xs:element xmlns:q13="https://mebservis.meb.gov.tr/COMMON/v1" minOccurs="0" ref="q13:Basarili" />
+        <xs:element xmlns:q14="https://mebservis.meb.gov.tr/COMMON/v1" minOccurs="0" ref="q14:SonucKodu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

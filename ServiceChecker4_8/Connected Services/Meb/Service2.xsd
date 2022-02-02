@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="https://mebservis.meb.gov.tr/COMMON/v1" elementFormDefault="qualified" targetNamespace="https://mebservis.meb.gov.tr/COMMON/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Aciklama" nillable="true" type="xs:string" />
+  <xs:element name="Basarili" type="xs:boolean" />
+  <xs:element name="SonucKodu" type="xs:int" />
+</xs:schema>
