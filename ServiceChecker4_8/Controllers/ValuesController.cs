@@ -3,7 +3,7 @@ using Microsoft.IdentityModel.Protocols.WSTrust;
 using ServiceChecker4_8.BilesikKutukSorgula;
 using ServiceChecker4_8.TCKimlikAdresSorgula;
 using ServiceChecker4_8.Utilities;
-using System;
+using System;                      
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -30,11 +30,8 @@ namespace ServiceChecker4_8.Controllers
         public HttpResponseMessage Get()
         {
             return Request.CreateResponse(HttpStatusCode.OK, "KURUM WEB SERVIS");
-
         }
         // POST api/values
-
-        
         public HttpResponseMessage Post([FromBody] Parameters parameters)
         {
             KPSConfiguration.Instance.Username = "KRM-6984181";
@@ -51,7 +48,6 @@ namespace ServiceChecker4_8.Controllers
 
                 List<BilesikKutukSorgulaKimlikNoSorguKriteri> list = new List<BilesikKutukSorgulaKimlikNoSorguKriteri>();
                 list.Add(new BilesikKutukSorgulaKimlikNoSorguKriteri() {
-                     
                     KimlikNo = long.Parse(parameters.sorgulananTC),
                     DogumAy=int.Parse(parameters.dogumAy),
                     DogumGun=int.Parse(parameters.dogumGun),
@@ -102,14 +98,15 @@ namespace ServiceChecker4_8.Controllers
 
                                 if (sonuc.SorguSonucu[0].TCVatandasiKisiKutukleri.NufusCuzdaniBilgisi != null)
                                 {
-                                    result.CuzdanVerilmeNeden  = sonuc.SorguSonucu[0].TCVatandasiKisiKutukleri.NufusCuzdaniBilgisi.CuzdanVerilmeNeden!= null ? sonuc.SorguSonucu[0].TCVatandasiKisiKutukleri.NufusCuzdaniBilgisi.CuzdanVerilmeNeden.Aciklama: "";
+                                    result.CuzdanVerilmeNeden = sonuc.SorguSonucu[0].TCVatandasiKisiKutukleri.NufusCuzdaniBilgisi.CuzdanVerilmeNeden != null ? sonuc.SorguSonucu[0].TCVatandasiKisiKutukleri.NufusCuzdaniBilgisi.CuzdanVerilmeNeden.Aciklama : "";
                                     result.CuzdanVerilmeNedenKod = sonuc.SorguSonucu[0].TCVatandasiKisiKutukleri.NufusCuzdaniBilgisi.CuzdanVerilmeNeden != null ? sonuc.SorguSonucu[0].TCVatandasiKisiKutukleri.NufusCuzdaniBilgisi.CuzdanVerilmeNeden.Kod : -1;
                                     result.CuzdanVerilenYer = sonuc.SorguSonucu[0].TCVatandasiKisiKutukleri.NufusCuzdaniBilgisi.VerildigiIlce != null ? sonuc.SorguSonucu[0].TCVatandasiKisiKutukleri.NufusCuzdaniBilgisi.VerildigiIlce.Aciklama : "";
                                     result.CuzdanVerilmeTarihGun = sonuc.SorguSonucu[0].TCVatandasiKisiKutukleri.NufusCuzdaniBilgisi.VerilmeTarih != null ? sonuc.SorguSonucu[0].TCVatandasiKisiKutukleri.NufusCuzdaniBilgisi.VerilmeTarih.Gun.ToString() : "";
                                     result.CuzdanVerilmeTarihAy = sonuc.SorguSonucu[0].TCVatandasiKisiKutukleri.NufusCuzdaniBilgisi.VerilmeTarih != null ? sonuc.SorguSonucu[0].TCVatandasiKisiKutukleri.NufusCuzdaniBilgisi.VerilmeTarih.Ay.ToString() : "";
                                     result.CuzdanVerilmeTarihYil = sonuc.SorguSonucu[0].TCVatandasiKisiKutukleri.NufusCuzdaniBilgisi.VerilmeTarih != null ? sonuc.SorguSonucu[0].TCVatandasiKisiKutukleri.NufusCuzdaniBilgisi.VerilmeTarih.Yil.ToString() : "";
-                                    result.CuzdanKayitNo = sonuc.SorguSonucu[0].TCVatandasiKisiKutukleri.NufusCuzdaniBilgisi.CuzdanKayitNo;
-                                    result.CuzdanSeriNo = sonuc.SorguSonucu[0].TCVatandasiKisiKutukleri.NufusCuzdaniBilgisi.Seri;
+                                    result.CuzdanKayitNo = sonuc.SorguSonucu[0].TCVatandasiKisiKutukleri.NufusCuzdaniBilgisi.CuzdanKayitNo != null ? sonuc.SorguSonucu[0].TCVatandasiKisiKutukleri.NufusCuzdaniBilgisi.CuzdanKayitNo: -1 ;
+                                    result.CuzdanSeriNo = sonuc.SorguSonucu[0].TCVatandasiKisiKutukleri.NufusCuzdaniBilgisi.Seri !=null? sonuc.SorguSonucu[0].TCVatandasiKisiKutukleri.NufusCuzdaniBilgisi.Seri.ToString():"";
+
                                 }
                             }
                             else

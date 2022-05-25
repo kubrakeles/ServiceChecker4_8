@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6fa9b3d2-0304-45ff-9650-b0811ac02483" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e279b189-68de-48db-84e7-358382d46f80" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
     <EnableDataBinding>true</EnableDataBinding>
     <ExcludedTypes />
     <ImportXmlTypes>false</ImportXmlTypes>
     <GenerateInternalTypes>false</GenerateInternalTypes>
     <GenerateMessageContracts>false</GenerateMessageContracts>
     <NamespaceMappings />
-    <CollectionMappings>
-      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
-    </CollectionMappings>
+    <CollectionMappings />
     <GenerateSerializableTypes>true</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
     <UseSerializerForFaults>true</UseSerializerForFaults>
@@ -20,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://kpsbasvuru.nvi.gov.tr/Services/WsdlNoPolicy.ashx?Service=BilesikKutukSorgulaKimlikNoServis&amp;Version=2021/04/01&amp;TestMode=true" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://kpsbasvuru.nvi.gov.tr/Services/Wsdl.ashx?Service=NkoSorgulaTCKimlikNoServis&amp;Version=2021/04/01&amp;TestMode=true" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="BilesikKutukSorgulaKimlikNoServis1.wsdl" MetadataType="Wsdl" ID="35c9c8a9-cf76-47ff-ad52-ceeceeb0431c" SourceId="1" SourceUrl="https://kpsbasvuru.nvi.gov.tr/Services/WsdlNoPolicy.ashx?Service=BilesikKutukSorgulaKimlikNoServis&amp;Version=2021/04/01&amp;TestMode=true" />
+    <MetadataFile FileName="NkoSorgulaTCKimlikNoServis.wsdl" MetadataType="Wsdl" ID="71357db4-82f7-4e01-9ad1-e262c58762d9" SourceId="1" SourceUrl="https://kpsbasvuru.nvi.gov.tr/Services/Wsdl.ashx?Service=NkoSorgulaTCKimlikNoServis&amp;Version=2021/04/01&amp;TestMode=true" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

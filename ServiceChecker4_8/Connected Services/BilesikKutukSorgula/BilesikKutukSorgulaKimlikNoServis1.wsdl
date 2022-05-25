@@ -1,66 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://kps.nvi.gov.tr/2021/04/01" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BilesikKutukSorgulaKimlikNoServis" targetNamespace="http://kps.nvi.gov.tr/2021/04/01" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
-  <wsp:Policy wsu:Id="CustomBinding_BilesikKutukSorgulaKimlikNoServis_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:TransportBinding xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
-          <wsp:Policy>
-            <sp:TransportToken>
-              <wsp:Policy>
-                <sp:HttpsToken />
-              </wsp:Policy>
-            </sp:TransportToken>
-            <sp:AlgorithmSuite>
-              <wsp:Policy>
-                <sp:Basic256 />
-              </wsp:Policy>
-            </sp:AlgorithmSuite>
-            <sp:Layout>
-              <wsp:Policy>
-                <sp:Strict />
-              </wsp:Policy>
-            </sp:Layout>
-            <sp:IncludeTimestamp />
-          </wsp:Policy>
-        </sp:TransportBinding>
-        <sp:EndorsingSupportingTokens xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
-          <wsp:Policy>
-            <sp:IssuedToken sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/AlwaysToRecipient">
-              <Issuer xmlns="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
-                <Address xmlns="http://www.w3.org/2005/08/addressing">https://kimlikdogrulama.nvi.gov.tr/Services/Issuer.svc/IWSTrust13</Address>
-                <Metadata xmlns="http://www.w3.org/2005/08/addressing">
-                  <Metadata xmlns="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                    <wsx:MetadataSection xmlns="" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
-                      <wsx:MetadataReference>
-                        <Address xmlns="http://www.w3.org/2005/08/addressing">https://kimlikdogrulama.nvi.gov.tr/Services/Issuer.svc/mex</Address>
-                      </wsx:MetadataReference>
-                    </wsx:MetadataSection>
-                  </Metadata>
-                </Metadata>
-              </Issuer>
-              <sp:RequestSecurityTokenTemplate>
-                <trust:KeyType xmlns:trust="http://docs.oasis-open.org/ws-sx/ws-trust/200512">http://docs.oasis-open.org/ws-sx/ws-trust/200512/SymmetricKey</trust:KeyType>
-              </sp:RequestSecurityTokenTemplate>
-              <wsp:Policy>
-                <sp:RequireInternalReference />
-              </wsp:Policy>
-            </sp:IssuedToken>
-          </wsp:Policy>
-        </sp:EndorsingSupportingTokens>
-        <sp:Wss11 xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
-          <wsp:Policy />
-        </sp:Wss11>
-        <sp:Trust13 xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
-          <wsp:Policy>
-            <sp:MustSupportIssuedTokens />
-            <sp:RequireClientEntropy />
-            <sp:RequireServerEntropy />
-          </wsp:Policy>
-        </sp:Trust13>
-        <wsaw:UsingAddressing />
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
   <wsdl:types>
     <xsd:schema elementFormDefault="qualified" targetNamespace="http://kps.nvi.gov.tr/2021/04/01">
       <xsd:element name="Sorgula">
@@ -501,7 +440,6 @@
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="CustomBinding_BilesikKutukSorgulaKimlikNoServis" type="tns:BilesikKutukSorgulaKimlikNoServis">
-    <wsp:PolicyReference URI="#CustomBinding_BilesikKutukSorgulaKimlikNoServis_policy" />
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Sorgula">
       <soap12:operation soapAction="http://kps.nvi.gov.tr/2021/04/01/BilesikKutukSorgulaKimlikNoServis/Sorgula" style="document" />
