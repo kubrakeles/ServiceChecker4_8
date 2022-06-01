@@ -27,6 +27,13 @@ namespace ServiceChecker4_8.Controllers
             set { nkotur = 2; }
         }
     }
+    public class nko_result
+    {
+
+
+
+
+    }
     public class NkoController : ApiController
     {
         // GET: Nko
@@ -40,17 +47,14 @@ namespace ServiceChecker4_8.Controllers
             KPSConfiguration.Instance.Username = "KRM-6984181";
             KPSConfiguration.Instance.Password = "0147852";
             KPSConfiguration.Instance.EndPoint = "https://kpsv2.nvi.gov.tr/Services/RoutingService.svc";
-            Result result = new Result();
+            Nko_Result result = new Nko_Result();
 
             using (ChannelFactory<NkoSorgulaTCKimlikNoServis> channelFactory = new ChannelFactory<ServiceChecker4_8.NufusKayitOrnegi.NkoSorgulaTCKimlikNoServis>("CustomBinding_NkoSorgulaTCKimlikNoServis", new EndpointAddress(KPSConfiguration.Instance.EndPoint)))
             {
                 channelFactory.Credentials.SupportInteractive = false;
-
                 channelFactory.ConfigureChannelFactory();
-
                 NkoSorgulaTCKimlikNoServis servis = channelFactory.CreateChannelWithIssuedToken(KPSServiceFactory.Instance.CreateToken(KPSConfiguration.Instance.Username));
-
-                NkoTCKimlikNoSorguKriteri[] kriterListesi = new NkoTCKimlikNoSorguKriteri[2];
+                NkoTCKimlikNoSorguKriteri[] kriterListesi = new NkoTCKimlikNoSorguKriteri[1];
                 kriterListesi[0] = new NkoTCKimlikNoSorguKriteri()
                 {
                     TCKimlikNo = long.Parse(parameters.sorgulananTC),
@@ -61,10 +65,44 @@ namespace ServiceChecker4_8.Controllers
                     EskiEsListele = false,
                     Vukuatli = false
 
-
                 };
 
                 NkoSonucu sonuc = servis.Sorgula(kriterListesi);
+                if(sonuc.HataBilgisi==null)
+                {
+                    if(sonuc.SorguSonucu.Length>0)
+                    {
+                        if(sonuc.SorguSonucu[0].Kisiler !=null)
+                        {
+                            List<Nko_Result> kisilerList = new List<Nko_Result>();
+                            //kişinin tüm aile bireylerini eklemek için liste oluşturuyoruz
+                            int kisiSayi = sonuc.SorguSonucu[0].Kisiler.Length;
+
+                            for(int i = 0; i < kisiSayi; i++) 
+                            {
+                                kisilerList.Add(new Nko_Result
+                                {
+                                    YakinlikKodu = sonuc.SorguSonucu[0].Kisiler[i].YakinlikKod.Aciklama != null ? sonuc.SorguSonucu[0].Kisiler[i].YakinlikKod.Aciklama = "",
+                                    Tc_No=sonuc.
+
+
+
+                            }
+                           
+                            
+                            
+                            
+                            
+                            
+                            });
+
+
+                        }
+
+
+                    }
+
+                }
 
                 //    if (sonuc.HataBilgisi == null)
                 //    { 
@@ -215,7 +253,7 @@ namespace ServiceChecker4_8.Controllers
                 //        string hata = sonuc.HataBilgisi.Aciklama;
                 //    }
                 //}
-                return Request.CreateResponse(HttpStatusCode.OK, result);
+                return Request.CreateResponse(HttpStatusCode.OK, sonuc);
             }
         }
 
